@@ -1,0 +1,48 @@
+---
+# tasks file for build
+- name: docker.io in build server
+  apt: name={{item}} state=present update-cache=yes
+  with_items:
+    - git
+    - maven
+    - python-pip
+    - docker.io
+
+- name: install pip install docker-py
+  pip:
+    name: docker-py
+
+- name: Ensure clone git repository boxfuse
+  git: repo={{proj_repo}} dest={{proj_build_folder}} clone=yes
+
+- name: Ensure to folder /boxfuse-sample-java-war-hello/ and build java project
+  command: mvn --batch-mode --quiet install
+  args:
+    chdir: boxfuse-sample-java-war-hello/
+
+- name: copy artifact with copy module in localhost production
+  copy:
+    src: /home/ubuntu/{{proj_art_folder}}/hello-1.0.war
+    dest: /home/ubuntu/hello-1.0.war
+    remote_src: yes
+
+- name: copy Dockerfile to build server
+#  copy: src=Dockerfile dest=/root/
+  copy: src=Dockerfile dest=/home/ubuntu/
+
+- name: build the docker image container
+  command: docker build -t certwork .
+
+- name: log into DockerHub
+  docker_login:
+    username: grandhustla
+    password: Ublpbycrbq220419911!
+    email: 50-G-Unit@mail.ru
+    reauthorize: yes
+
+- name: Tag an image and push to docker hub
+  docker_image:
+    name: certwork
+    repository: grandhustla/certwork
+    tag: 0.0.1
+    push: yes

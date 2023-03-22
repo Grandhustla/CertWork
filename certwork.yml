@@ -1,0 +1,16 @@
+---
+- name: building the project on build vm
+  hosts: building
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+    - build
+
+- name: run the project on prod vm
+  hosts: production
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+    - prod

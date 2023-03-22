@@ -1,0 +1,21 @@
+---
+# tasks file for prod
+- name: install default-jdk & tomcat9 on production server
+  apt: name={{item}} state=present update-cache=yes
+  with_items:
+    - docker.io
+
+- name: log into DockerHub
+  docker_login:
+    username: grandhustla
+    password: Ublpbycrbq220419911!
+    email: 50-G-Unit@mail.ru
+    reauthorize: yes
+
+- name: pull an image
+  docker_image:
+    name: grandhustla/certwork
+    pull: yes
+
+- name: run the image
+  command: docker run -d -p 8080:8080 grandhustla/certwork

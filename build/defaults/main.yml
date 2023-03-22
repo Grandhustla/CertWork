@@ -1,0 +1,5 @@
+---
+# defaults file for build
+proj_build_folder: boxfuse-sample-java-war-hello/
+proj_art_folder: boxfuse-sample-java-war-hello/target
+proj_repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello
