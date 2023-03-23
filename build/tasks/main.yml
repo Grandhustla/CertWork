@@ -44,5 +44,5 @@
   docker_image:
     name: certwork
     repository: grandhustla/certwork
-    tag: 0.0.1
+    #tag: 0.0.1
     push: yes
