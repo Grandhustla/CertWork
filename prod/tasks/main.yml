@@ -19,7 +19,7 @@
 
 - name: pull an image
   docker_image:
-    name: grandhustla/certwork
+    name: grandhustla/certwork:0.0.1
     pull: yes
 
 - name: run the image
