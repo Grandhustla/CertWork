@@ -41,7 +41,7 @@ pipeline {
         stage ("Run ansible Roles for Build and Prod VM's") {
             steps {
                 sh '''
-                    ansible-playbook certwork.yml
+                    ansible-playbook --user=ubuntu certwork.yml
                 '''
             }
         }
