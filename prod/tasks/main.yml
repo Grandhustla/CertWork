@@ -12,10 +12,10 @@
 
 - name: log into DockerHub
   docker_login:
-    username: grandhustla
-    password: Ublpbycrbq220419911!
-    #email: 50-G-Unit@mail.ru
-    #reauthorize: yes
+    username: "{{ lookup('ini', 'Username type=properties file=../../dockercreds.properties') }}"
+    password: "{{ lookup('ini', 'Password type=properties file=../../dockercreds.properties') }}"
+#    username: grandhustla
+#    password: Ublpbycrbq220419911!
 
 - name: pull an image
   docker_image:
@@ -26,10 +26,6 @@
   docker_container:
     name: certwork
     image: grandhustla/certwork:2.0.1
-#    workdir: /home/ubuntu
     state: started
     ports:
       - "8080:8080"
-
-#- name: run the image
-#  command: docker run -d -p 8080:8080 grandhustla/certwork
