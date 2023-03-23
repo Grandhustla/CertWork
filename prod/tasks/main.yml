@@ -26,7 +26,7 @@
   docker_container:
     name: certwork
     image: grandhustla/certwork:2.0.1
-    workdir: /home/ubuntu
+#    workdir: /home/ubuntu
     state: started
     ports:
       - "8080:8080"
