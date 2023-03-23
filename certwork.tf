@@ -35,7 +35,7 @@ resource "aws_security_group" "certwork" {
     protocol  = "tcp"
     from_port = 22
     to_port   = 22
-    cidr_blocks = ["158.160.55.244/32"]
+    cidr_blocks = ["62.84.112.249/32"]
   }
 
   egress {
