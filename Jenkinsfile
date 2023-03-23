@@ -38,14 +38,14 @@ pipeline {
             }
         }
 
-        stage ("Create In-Memory-Inventory with ansible playbook") {
-            steps {
-                sh '''
-                    ansible-playbook groupadd.yml
-                '''
-            }
-
-        }
+//         stage ("Create In-Memory-Inventory with ansible playbook") {
+//             steps {
+//                 sh '''
+//                     ansible-playbook groupadd.yml
+//                 '''
+//             }
+//
+//         }
 
         stage ("Run ansible Roles for Build and Prod VM's") {
             steps {
