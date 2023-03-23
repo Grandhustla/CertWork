@@ -5,7 +5,10 @@
   with_items:
     - python3-pip
     - docker.io
-    - docker-py
+
+- name: install pip install docker-py
+  pip:
+    name: docker-py
 
 - name: log into DockerHub
   docker_login:
