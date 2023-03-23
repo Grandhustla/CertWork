@@ -8,7 +8,7 @@
 
 - name: building the project on build vm
   hosts: building
-  remote_user: ubuntu
+  remote_user: jenkins
   become: yes
 
   roles:
