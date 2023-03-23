@@ -1,7 +1,6 @@
 ---
 - name: Add hosts in groups by Jenkins
   hosts: localhost
-  become: yes
 
   tasks:
     - name: Add host to building group
