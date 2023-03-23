@@ -3,7 +3,9 @@
 - name: install default-jdk & tomcat9 on production server
   apt: name={{item}} state=present update-cache=yes
   with_items:
+    - python3-pip
     - docker.io
+    - docker-py
 
 - name: log into DockerHub
   docker_login:
