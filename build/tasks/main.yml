@@ -1,10 +1,5 @@
 ---
 # tasks file for build
-- name: Add hosts in groups by Jenkins
-  add_host:
-    hostname: "{{ (lookup('file', './ip_addresses.json') | from_json).get('building_ip_address') }}"
-    groups: building
-
 - name: docker.io in build server
   apt: name={{item}} state=present update-cache=yes
   with_items:

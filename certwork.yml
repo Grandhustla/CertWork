@@ -1,4 +1,11 @@
 ---
+- name: Add hosts in groups by Jenkins
+  hosts: localhost
+  become: yes
+
+  roles:
+    - crgroup
+
 - name: building the project on build vm
   hosts: building
   remote_user: ubuntu
