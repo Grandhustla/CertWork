@@ -20,7 +20,6 @@ pipeline {
                     terraform plan
                     terraform apply --auto-approve
                     sleep 300
-                    ansible-playbook certwork.yml
                 '''
             }
         }
