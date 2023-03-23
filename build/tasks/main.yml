@@ -35,8 +35,8 @@
 
 - name: log into DockerHub
   docker_login:
-    username: grandhustla
-    password: Ublpbycrbq220419911!
+    username: ********
+    password: ********
     email: 50-G-Unit@mail.ru
     reauthorize: yes
 
