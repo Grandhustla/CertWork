@@ -7,6 +7,7 @@ pipeline {
         stage ("Copy .terraformrc to home directory") {
             steps {
                 sh '''
+                    cp .terraformrc ~/
                     terraform -version
                 '''
             }
