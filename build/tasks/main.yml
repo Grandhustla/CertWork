@@ -42,8 +42,6 @@
   docker_login:
     username: "{{ lookup('ini', 'Username type=properties file=../../dockercreds.properties') }}"
     password: "{{ lookup('ini', 'Password type=properties file=../../dockercreds.properties') }}"
-#    username: grandhustla
-#    password: Ublpbycrbq220419911!
 
 - name: Tag an image and push to docker hub
   docker_image:
