@@ -19,7 +19,7 @@ pipeline {
                     terraform init
                     terraform plan
                     terraform apply --auto-approve
-                    sleep 300
+                    sleep 30
                 '''
             }
         }
