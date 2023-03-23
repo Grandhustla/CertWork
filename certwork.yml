@@ -1,6 +1,8 @@
 ---
 - name: Add hosts in groups by Jenkins
   hosts: localhost
+  remote_user: ubuntu
+  become: yes
 
   roles:
     - crgroup
