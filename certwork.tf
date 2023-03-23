@@ -69,7 +69,7 @@ resource "aws_instance" "certwork-prod" {
   }
 }
 
-#resource "local_file" "vmaddresses" {
-#  content = "{ \"building_ip_address\" : \"${aws_instance.certwork-build.public_ip}\", \"production_ip_address\" : \"${aws_instance.certwork-prod.public_ip}\"}"
-#  filename = "./ip_addresses.json"
-#}
+resource "local_file" "vmaddresses" {
+  content = "{ \"building_ip_address\" : \"${aws_instance.certwork-build.public_ip}\", \"production_ip_address\" : \"${aws_instance.certwork-prod.public_ip}\" }"
+  filename = "./ip_addresses.json"
+}

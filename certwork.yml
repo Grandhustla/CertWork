@@ -1,4 +1,19 @@
 ---
+- name: Add hosts in groups by Jenkins
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Add host to building group
+      add_host:
+        hostname: "{{ (lookup('file', './ip_addresses.json') | from_json).get('building_ip_address') }}"
+        groups: building
+
+    - name: Add host to production group
+      add_host:
+        hostname: "{{ (lookup('file', './ip_addresses.json') | from_json).get('production_ip_address') }}"
+        groups: production
+
 - name: building the project on build vm
   hosts: building
   remote_user: ubuntu
