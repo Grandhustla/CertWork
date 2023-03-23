@@ -42,6 +42,15 @@ pipeline {
             steps {
                 sh '''
                     ansible-playbook --user=ubuntu certwork.yml
+                    sleep 180
+                '''
+            }
+        }
+
+        stage ("Terraform destroy --auto-approve") {
+            steps {
+                sh '''
+                    terraform destroy --auto-approve
                 '''
             }
         }
