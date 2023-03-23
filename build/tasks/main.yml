@@ -30,19 +30,34 @@
 #  copy: src=Dockerfile dest=/root/
   copy: src=Dockerfile dest=/home/ubuntu/
 
-- name: build the docker image container
-  command: docker build -t certwork .
+#- name: build the docker image container
+#  command: docker build -t certwork .
+
+- name: Build Dockerfile Container
+  docker_image:
+    name: certwork
+    tag: 2.0.1
+    build:
+      path: /home/ubuntu
+      dockerfile: Dockerfile
+    source: build
 
 - name: log into DockerHub
   docker_login:
     username: grandhustla
     password: Ublpbycrbq220419911!
-    email: 50-G-Unit@mail.ru
-    reauthorize: yes
+    #email: 50-G-Unit@mail.ru
+    #reauthorize: yes
 
 - name: Tag an image and push to docker hub
   docker_image:
-    name: certwork
-    repository: grandhustla/certwork
-#    tag: 0.0.1
+    name: certwork:2.0.1
+    repository: grandhustla/certwork:2.0.1
     push: yes
+
+#- name: Tag an image and push to docker hub
+#  docker_image:
+#    name: certwork
+#    repository: grandhustla/certwork
+#    tag: 0.0.1
+#    push: yes

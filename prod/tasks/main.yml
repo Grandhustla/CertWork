@@ -14,13 +14,22 @@
   docker_login:
     username: grandhustla
     password: Ublpbycrbq220419911!
-    email: 50-G-Unit@mail.ru
-    reauthorize: yes
+    #email: 50-G-Unit@mail.ru
+    #reauthorize: yes
 
 - name: pull an image
   docker_image:
-    name: grandhustla/certwork
+    name: grandhustla/certwork:2.0.1
     pull: yes
 
 - name: run the image
-  command: docker run -d -p 8080:8080 grandhustla/certwork
+  docker_container:
+    name: certwork
+    image: grandhustla/certwork:2.0.1
+    workdir: /home/ubuntu
+    state: started
+    ports:
+      - "8080:8080"
+
+#- name: run the image
+#  command: docker run -d -p 8080:8080 grandhustla/certwork
