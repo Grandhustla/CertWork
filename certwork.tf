@@ -14,7 +14,7 @@ provider "aws" {
 
 resource "aws_key_pair" "certworkkey" {
   key_name = "certworkkey"
-  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7PRHFiNFhIk6CTqA7suAksPaCnqYwcqLUNhkkZq3r2 root@certwork"
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOH6HOPkCImuFUQ8bmjeso+SbKaGu4Rew307UptCrm52 jenkins@certwork"
 }
 
 resource "aws_security_group" "certwork" {
